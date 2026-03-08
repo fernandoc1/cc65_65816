@@ -989,6 +989,10 @@ static void OptWritableStrings (const char* Opt attribute ((unused)),
 
 int main (int argc, char* argv[])
 {
+    if(getenv("CC65_DEBUG") != NULL) {
+        fprintf(stderr, "Debug mode enabled. Press Enter to continue. PID: %d\n", getpid());
+        getchar();
+    }
     /* Program long options */
     static const LongOpt OptTab[] = {
         { "--add-source",           0,      OptAddSource            },

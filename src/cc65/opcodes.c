@@ -467,6 +467,13 @@ const OPCDesc OPCTable[OP65_COUNT] = {
         REG_NONE,                               /* use */
         REG_NONE                                /* chg */
     },
+    {   OP65_PHK,                               /* opcode */
+        "phk",                                  /* mnemonic */
+        1,                                      /* size */
+        OF_NONE,                                /* flags */
+        REG_NONE,                               /* use */
+        REG_NONE                                /* chg */
+    },
     {   OP65_PHD,                               /* opcode */
         "phd",                                  /* mnemonic */
         1,                                      /* size */

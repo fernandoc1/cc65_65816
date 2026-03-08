@@ -105,6 +105,7 @@ typedef enum {
     OP65_PHA,
     OP65_PHB,                   /* Push Data Bank Register */
     OP65_PHD,                   /* Push Direct Register */
+    OP65_PHK,                   /* Push Program Bank Register */
     OP65_PHP,
     OP65_PHX,
     OP65_PHY,
