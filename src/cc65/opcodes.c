@@ -138,19 +138,19 @@ const OPCDesc OPCTable[OP65_COUNT] = {
         REG_NONE,                               /* use */
         REG_NONE                                /* chg */
     },
-    {   OP65_BRL,                               /* opcode */
-        "brl",                                  /* mnemonic */
-        4,                                      /* size */
-        OF_UBRA | OF_LBRA,                      /* flags */
-        REG_NONE,                               /* use */
-        REG_NONE                                /* chg */
-    },
     {   OP65_BRK,                               /* opcode */
         "brk",                                  /* mnemonic */
         1,                                      /* size */
         OF_NONE,                                /* flags */
         REG_NONE,                               /* use */
         PSTATE_B                                /* chg */
+    },
+    {   OP65_BRL,                               /* opcode */
+        "brl",                                  /* mnemonic */
+        4,                                      /* size */
+        OF_UBRA | OF_LBRA,                      /* flags */
+        REG_NONE,                               /* use */
+        REG_NONE                                /* chg */
     },
     {   OP65_BVC,                               /* opcode */
         "bvc",                                  /* mnemonic */
@@ -320,17 +320,17 @@ const OPCDesc OPCTable[OP65_COUNT] = {
         PSTATE_N,                               /* use */
         REG_NONE                                /* chg */
     },
-    {   OP65_JMP,                               /* opcode */
-        "jmp",                                  /* mnemonic */
-        3,                                      /* size */
-        OF_UBRA | OF_LBRA | OF_READ,            /* flags */
-        REG_NONE,                               /* use */
-        REG_NONE                                /* chg */
-    },
     {   OP65_JML,                               /* opcode */
         "jml",                                  /* mnemonic */
         4,                                      /* size */
         OF_UBRA | OF_LBRA,                      /* flags */
+        REG_NONE,                               /* use */
+        REG_NONE                                /* chg */
+    },
+    {   OP65_JMP,                               /* opcode */
+        "jmp",                                  /* mnemonic */
+        3,                                      /* size */
+        OF_UBRA | OF_LBRA | OF_READ,            /* flags */
         REG_NONE,                               /* use */
         REG_NONE                                /* chg */
     },
@@ -467,15 +467,15 @@ const OPCDesc OPCTable[OP65_COUNT] = {
         REG_NONE,                               /* use */
         REG_NONE                                /* chg */
     },
-    {   OP65_PHK,                               /* opcode */
-        "phk",                                  /* mnemonic */
+    {   OP65_PHD,                               /* opcode */
+        "phd",                                  /* mnemonic */
         1,                                      /* size */
         OF_NONE,                                /* flags */
         REG_NONE,                               /* use */
         REG_NONE                                /* chg */
     },
-    {   OP65_PHD,                               /* opcode */
-        "phd",                                  /* mnemonic */
+    {   OP65_PHK,                               /* opcode */
+        "phk",                                  /* mnemonic */
         1,                                      /* size */
         OF_NONE,                                /* flags */
         REG_NONE,                               /* use */
