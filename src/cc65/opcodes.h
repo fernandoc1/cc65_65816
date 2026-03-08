@@ -58,6 +58,7 @@ typedef enum {
     OP65_BPL,
     OP65_BRA,
     OP65_BRK,
+    OP65_BRL,                   /* Branch Long */
     OP65_BVC,
     OP65_BVS,
     OP65_CLC,
@@ -65,6 +66,7 @@ typedef enum {
     OP65_CLI,
     OP65_CLV,
     OP65_CMP,
+    OP65_COP,                   /* Co-processor */
     OP65_CPX,
     OP65_CPY,
     OP65_DEA,
@@ -76,13 +78,16 @@ typedef enum {
     OP65_INC,
     OP65_INX,
     OP65_INY,
+    OP65_JAL,                   /* Jump Absolute Long */
     OP65_JCC,
     OP65_JCS,
     OP65_JEQ,
     OP65_JMI,
+    OP65_JML,                   /* Jump Memory Long */
     OP65_JMP,
     OP65_JNE,
     OP65_JPL,
+    OP65_JSL,                   /* Jump Subroutine Long */
     OP65_JSR,
     OP65_JVC,
     OP65_JVS,
@@ -90,24 +95,36 @@ typedef enum {
     OP65_LDX,
     OP65_LDY,
     OP65_LSR,
+    OP65_MVN,                   /* Move Negative */
+    OP65_MVP,                   /* Move Positive */
     OP65_NOP,
     OP65_ORA,
+    OP65_PEA,                   /* Push Effective Address */
+    OP65_PEI,                   /* Push Effective Indirect Address */
+    OP65_PER,                   /* Push Effective PC Relative Address */
     OP65_PHA,
+    OP65_PHB,                   /* Push Data Bank Register */
+    OP65_PHD,                   /* Push Direct Register */
     OP65_PHP,
     OP65_PHX,
     OP65_PHY,
     OP65_PLA,
+    OP65_PLB,                   /* Pull Data Bank Register */
+    OP65_PLD,                   /* Pull Direct Register */
     OP65_PLP,
     OP65_PLX,
     OP65_PLY,
+    OP65_REP,                   /* Reset Processor Status Bits */
     OP65_ROL,
     OP65_ROR,
     OP65_RTI,
+    OP65_RTL,                   /* Return from Subroutine Long */
     OP65_RTS,
     OP65_SBC,
     OP65_SEC,
     OP65_SED,
     OP65_SEI,
+    OP65_SEP,                   /* Set Processor Status Bits */
     OP65_STA,
     OP65_STP,                   /* 65c02, 65816 stop */
     OP65_STX,
@@ -115,12 +132,19 @@ typedef enum {
     OP65_STZ,
     OP65_TAX,
     OP65_TAY,
+    OP65_TCD,                   /* Transfer Accumulator to Direct Register */
+    OP65_TCS,                   /* Transfer Accumulator to Stack Pointer */
+    OP65_TDC,                   /* Transfer Direct Register to Accumulator */
     OP65_TRB,
     OP65_TSB,
+    OP65_TSC,                   /* Transfer Stack Pointer to Accumulator */
     OP65_TSX,
     OP65_TXA,
     OP65_TXS,
     OP65_TYA,
+    OP65_WAI,                   /* Wait for Interrupt */
+    OP65_XBA,                   /* Exchange A and B Accumulators */
+    OP65_XCE,                   /* Exchange Carry with Emulation */
 
     /* Number of opcodes available */
     OP65_COUNT,
