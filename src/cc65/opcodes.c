@@ -348,17 +348,17 @@ const OPCDesc OPCTable[OP65_COUNT] = {
         PSTATE_N,                               /* use */
         REG_NONE                                /* chg */
     },
-    {   OP65_JSR,                               /* opcode */
-        "jsr",                                  /* mnemonic */
-        3,                                      /* size */
-        OF_CALL | OF_READ,                      /* flags */
-        REG_NONE,                               /* use */
-        REG_NONE                                /* chg */
-    },
     {   OP65_JSL,                               /* opcode */
         "jsl",                                  /* mnemonic */
         4,                                      /* size */
         OF_CALL,                                /* flags */
+        REG_NONE,                               /* use */
+        REG_NONE                                /* chg */
+    },
+    {   OP65_JSR,                               /* opcode */
+        "jsr",                                  /* mnemonic */
+        3,                                      /* size */
+        OF_CALL | OF_READ,                      /* flags */
         REG_NONE,                               /* use */
         REG_NONE                                /* chg */
     },
@@ -537,6 +537,13 @@ const OPCDesc OPCTable[OP65_COUNT] = {
         REG_NONE,                               /* use */
         REG_Y | PSTATE_ZN                       /* chg */
     },
+    {   OP65_REP,                               /* opcode */
+        "rep",                                  /* mnemonic */
+        2,                                      /* size */
+        OF_NONE,                                /* flags */
+        REG_NONE,                               /* use */
+        PSTATE_ALL                              /* chg */
+    },
     {   OP65_ROL,                               /* opcode */
         "rol",                                  /* mnemonic */
         0,                                      /* size */
@@ -550,13 +557,6 @@ const OPCDesc OPCTable[OP65_COUNT] = {
         OF_SETF | OF_NOIMP | OF_RMW,            /* flags */
         PSTATE_C,                               /* use */
         PSTATE_CZN                              /* chg */
-    },
-    {   OP65_REP,                               /* opcode */
-        "rep",                                  /* mnemonic */
-        2,                                      /* size */
-        OF_NONE,                                /* flags */
-        REG_NONE,                               /* use */
-        PSTATE_ALL                              /* chg */
     },
     /* Mark RTI as "uses all registers but doesn't change them", so the
     ** optimizer won't remove preceeding loads.
