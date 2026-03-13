@@ -73,6 +73,7 @@ struct RegContents;
 #define REG_SAVE_HI     0x0800U
 #define REG_SP_LO       0x1000U
 #define REG_SP_HI       0x2000U
+#define REG_D           0x4000U
 
 /* Defines for some special register usage */
 #define SLV_IND         0x00010000U     /* Accesses (c_sp),y */

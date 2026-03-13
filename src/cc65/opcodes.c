@@ -471,7 +471,7 @@ const OPCDesc OPCTable[OP65_COUNT] = {
         "phd",                                  /* mnemonic */
         1,                                      /* size */
         OF_NONE,                                /* flags */
-        REG_NONE,                               /* use */
+        REG_D,                                  /* use */
         REG_NONE                                /* chg */
     },
     {   OP65_PHK,                               /* opcode */
@@ -521,7 +521,7 @@ const OPCDesc OPCTable[OP65_COUNT] = {
         1,                                      /* size */
         OF_SETF,                                /* flags */
         REG_NONE,                               /* use */
-        PSTATE_ZN                               /* chg */
+        REG_D | PSTATE_ZN                       /* chg */
     },
     {   OP65_PLP,                               /* opcode */
         "plp",                                  /* mnemonic */
@@ -678,7 +678,7 @@ const OPCDesc OPCTable[OP65_COUNT] = {
         1,                                      /* size */
         OF_XFR,                                 /* flags */
         REG_A,                                  /* use */
-        REG_NONE                                /* chg */
+        REG_D                                   /* chg */
     },
     {   OP65_TCS,                               /* opcode */
         "tcs",                                  /* mnemonic */
@@ -691,7 +691,7 @@ const OPCDesc OPCTable[OP65_COUNT] = {
         "tdc",                                  /* mnemonic */
         1,                                      /* size */
         OF_XFR | OF_SETF,                       /* flags */
-        REG_NONE,                               /* use */
+        REG_D,                                  /* use */
         REG_A | PSTATE_ZN                       /* chg */
     },
     {   OP65_TRB,                               /* opcode */
