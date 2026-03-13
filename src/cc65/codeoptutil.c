@@ -634,6 +634,16 @@ unsigned int TrackLoads (LoadInfo* LI, CodeSeg* S, int I)
                 return Used;
             case OP65_TXS:
                 return Used;
+            case OP65_TDC:
+                ClearLoadRegInfo (&LI->A);
+                return Used;
+            case OP65_TSC:
+                ClearLoadRegInfo (&LI->A);
+                return Used;
+            case OP65_TCS:
+                return Used;
+            case OP65_TCD:
+                return Used;
             default:            Internal ("Unknown XFR insn in TrackLoads");
         }
 
