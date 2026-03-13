@@ -37,6 +37,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <errno.h>
+#include <unistd.h>
 
 /* common */
 #include "abend.h"

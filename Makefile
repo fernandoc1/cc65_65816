@@ -1,4 +1,5 @@
 # ---- Display info during parsing phase ----
+export PATH := $(PWD)/bin:$(PATH)
 SILENT:=$(findstring s,$(word 1, $(MAKEFLAGS)))
 ifneq ($(SILENT),s)
     $(info Using Makefile: $(realpath $(firstword $(MAKEFILE_LIST))) $(MAKECMDGOALS))
