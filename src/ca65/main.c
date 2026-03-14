@@ -37,6 +37,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <unistd.h>
 
 /* common */
 #include "addrsize.h"
@@ -1071,6 +1072,10 @@ static void CreateObjFile (void)
 int main (int argc, char* argv [])
 /* Assembler main program */
 {
+    if(getenv("CA65_DEBUG") != NULL) {
+        fprintf(stderr, "Debug mode enabled. Press Enter to continue. PID: %d\n", getpid());
+        getchar();
+    }
     /* Program long options */
     static const LongOpt OptTab[] = {
         { "--auto-import",         0,      OptAutoImport           },
