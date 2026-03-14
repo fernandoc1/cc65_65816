@@ -168,7 +168,8 @@ typedef enum {
     AM65_ZPX_IND,               /* (zeropage,x) */
     AM65_ZP_INDY,               /* (zeropage),y */
     AM65_ZP_IND,                /* (zeropage) */
-    AM65_BRA                    /* branch */
+    AM65_BRA,                   /* branch */
+    AM65_SREL                   /* stack relative */
 } am_t;
 
 /* Branch conditions */

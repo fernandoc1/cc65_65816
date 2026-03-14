@@ -436,6 +436,9 @@ static CodeEntry* ParseInsn (CodeSeg* S, LineInfo* LI, const char* L)
                         ** We just play it simple and safe for now.
                         */
                         AM = AM65_ABSY;
+                    } else if (Reg == 'S') {
+                        /* On 65816 there is stack relative addressing */
+                        AM = AM65_SREL;
                     } else {
                         Error ("ASM code error: syntax error");
                         return 0;
