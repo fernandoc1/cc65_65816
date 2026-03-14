@@ -736,12 +736,26 @@ const OPCDesc OPCTable[OP65_COUNT] = {
         REG_X,                                  /* use */
         REG_NONE                                /* chg */
     },
+    {   OP65_TXY,                               /* opcode */
+        "txy",                                  /* mnemonic */
+        1,                                      /* size */
+        OF_XFR | OF_SETF,                       /* flags */
+        REG_X,                                  /* use */
+        REG_Y | PSTATE_ZN                       /* chg */
+    },
     {   OP65_TYA,                               /* opcode */
         "tya",                                  /* mnemonic */
         1,                                      /* size */
         OF_XFR | OF_SETF,                       /* flags */
         REG_Y,                                  /* use */
         REG_A | PSTATE_ZN                       /* chg */
+    },
+    {   OP65_TYX,                               /* opcode */
+        "tyx",                                  /* mnemonic */
+        1,                                      /* size */
+        OF_XFR | OF_SETF,                       /* flags */
+        REG_Y,                                  /* use */
+        REG_X | PSTATE_ZN                       /* chg */
     },
     {   OP65_WAI,                               /* opcode */
         "wai",                                  /* mnemonic */

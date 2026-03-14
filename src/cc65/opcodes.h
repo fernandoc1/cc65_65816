@@ -142,7 +142,9 @@ typedef enum {
     OP65_TSX,
     OP65_TXA,
     OP65_TXS,
+    OP65_TXY,                   /* Transfer X to Y */
     OP65_TYA,
+    OP65_TYX,                   /* Transfer Y to X */
     OP65_WAI,                   /* Wait for Interrupt */
     OP65_XBA,                   /* Exchange A and B Accumulators */
     OP65_XCE,                   /* Exchange Carry with Emulation */
