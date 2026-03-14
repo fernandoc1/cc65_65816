@@ -64,7 +64,6 @@
 
 
 
-static void StdFunc_emit_asm (FuncDesc*, ExprDesc*);
 static void StdFunc_memcpy (FuncDesc*, ExprDesc*);
 static void StdFunc_memset (FuncDesc*, ExprDesc*);
 static void StdFunc_strcmp (FuncDesc*, ExprDesc*);
@@ -87,7 +86,6 @@ static struct StdFuncDesc {
     void                (*Handler) (FuncDesc*, ExprDesc*);
 } StdFuncs[] = {
 /* BEGIN SORTED.SH */
-    {   "emit_asm",     StdFunc_emit_asm        },
     {   "memcpy",       StdFunc_memcpy          },
     {   "memset",       StdFunc_memset          },
     {   "strcmp",       StdFunc_strcmp          },
@@ -210,64 +208,8 @@ void AddCmpCodeIfSizeNot256 (const char* Code, long Size)
 
 
 /*****************************************************************************/
-/*                                 emit_asm                                  */
-/*****************************************************************************/
-
-
-
-static void StdFunc_emit_asm (FuncDesc* F attribute ((unused)), ExprDesc* Expr)
-/* Handle the emit_asm function */
-{
-    /* Argument type: (const char*) */
-    static const Type* ArgType = type_c_char_p;
-
-    ExprDesc    Arg;
-    const char* AsmCode;
-
-    ED_Init (&Arg);
-    Arg.Flags |= Expr->Flags & E_MASK_KEEP_SUBEXPR;
-
-    /* Evaluate the parameter */
-    hie1 (&Arg);
-
-    /* We still need to append deferred inc/dec before calling into the function */
-    DoDeferred (SQP_KEEP_EAX, &Arg);
-
-    /* Do type conversion */
-    TypeConversion (&Arg, ArgType);
-
-    /* Check if the argument is a string literal */
-    if (ED_IsLocLiteral (&Arg) && IS_Get (&WritableStrings) == 0) {
-        /* Get the assembly code string */
-        AsmCode = GetLiteralStr (Arg.V.LVal);
-
-        /* Emit the assembly code directly */
-        AddCodeLine ("%s", AsmCode);
-
-        /* We don't need the literal any longer */
-        ReleaseLiteral (Arg.V.LVal);
-
-        /* Set the result to void */
-        ED_MakeConstAbs (Expr, 0, type_void);
-    } else {
-        /* Error: argument must be a string literal */
-        Error ("Argument to emit_asm must be a string literal");
-        ED_MakeConstAbs (Expr, 0, type_void);
-    }
-
-    /* We expect the closing brace */
-    ConsumeRParen ();
-
-    /* Propagate from subexpressions */
-    Expr->Flags |= Arg.Flags & E_MASK_VIRAL;
-}
-
-
-
-/*****************************************************************************/
 /*                                  memcpy                                   */
 /*****************************************************************************/
-
 
 
 
