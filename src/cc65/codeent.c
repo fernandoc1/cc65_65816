@@ -2596,6 +2596,11 @@ void CE_Output (const CodeEntry* E)
             Chars += WriteOutput ("%*s%s", Space, "", Target);
             break;
 
+        case AM65_SREL:
+            /* stack relative */
+            Target = E->JumpTo? E->JumpTo->Name : E->Arg;
+            Chars += WriteOutput ("%*s%s,s", Space, "", Target);
+            break;
         default:
             Internal ("Invalid addressing mode");
 

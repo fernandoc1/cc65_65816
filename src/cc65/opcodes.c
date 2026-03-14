@@ -835,6 +835,7 @@ unsigned GetInsnSize (opc_t OPC, am_t AM)
         case AM65_ZPX_IND: return 2;
         case AM65_ZP_INDY: return 2;
         case AM65_ZP_IND:  return 2;
+        case AM65_SREL:    return 2;
         default:
             Internal ("Invalid addressing mode");
             return 0;
