@@ -54,6 +54,7 @@
 #include "asmcode.h"
 #include "asmlabel.h"
 #include "casenode.h"
+#include "codeent.h"
 #include "codeseg.h"
 #include "dataseg.h"
 #include "error.h"
@@ -549,8 +550,16 @@ void g_leave (int DoCleanup)
         }
     }
 
-    /* Add the final rts */
-    AddCodeLine ("rts");
+    /* Add the final rts, but only if the last instruction isn't already rts or rtl */
+    unsigned Count = CS_GetEntryCount (CS->Code);
+    if (Count > 0) {
+        CodeEntry* LastEntry = CS_GetEntry (CS->Code, Count - 1);
+        if (LastEntry->OPC != OP65_RTS && LastEntry->OPC != OP65_RTL) {
+            AddCodeLine ("rts");
+        }
+    } else {
+        AddCodeLine ("rts");
+    }
 }
 
 
