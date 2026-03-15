@@ -1267,7 +1267,7 @@ static const struct {
         { "SEI",  0x0000001, 0x78, 0, PutAll },
         { "SEP",  0x0800000, 0xe2, 1, PutSEP },
         { "STA",  0x018f6fc, 0x80, 0, PutAll },
-        { "STP",  0x0b8f6fc, 0xdb, 0, PutAll },   /* Repurposed to call system functions. Work like ORA*/
+        { "STP",  0x0000001, 0xdb, 0, PutAll },
         { "STX",  0x000010c, 0x82, 1, PutAll },
         { "STY",  0x000002c, 0x80, 1, PutAll },
         { "STZ",  0x000006c, 0x04, 5, PutAll },
