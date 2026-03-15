@@ -1188,7 +1188,7 @@ static const struct {
 /* Instruction table for the 65816 */
 static const struct {
     unsigned Count;
-    InsDesc  Ins[100];
+    InsDesc  Ins[101];
 } InsTab65816 = {
     /* CAUTION: table must be sorted for bsearch */
     sizeof (InsTab65816.Ins) / sizeof (InsTab65816.Ins[0]),
@@ -1271,6 +1271,7 @@ static const struct {
         { "STX",  0x000010c, 0x82, 1, PutAll },
         { "STY",  0x000002c, 0x80, 1, PutAll },
         { "STZ",  0x000006c, 0x04, 5, PutAll },
+        { "SYS",  0x0800005, 0x0f, 6, PutAll },   /* Calls the emulator to execute a function */
         { "SWA",  0x0000001, 0xeb, 0, PutAll },   /* == XBA */
         { "TAD",  0x0000001, 0x5b, 0, PutAll },   /* == TCD */
         { "TAS",  0x0000001, 0x1b, 0, PutAll },   /* == TCS */
