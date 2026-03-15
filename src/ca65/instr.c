@@ -1188,7 +1188,7 @@ static const struct {
 /* Instruction table for the 65816 */
 static const struct {
     unsigned Count;
-    InsDesc  Ins[101];
+    InsDesc  Ins[100];
 } InsTab65816 = {
     /* CAUTION: table must be sorted for bsearch */
     sizeof (InsTab65816.Ins) / sizeof (InsTab65816.Ins[0]),
