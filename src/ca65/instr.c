@@ -1271,8 +1271,8 @@ static const struct {
         { "STX",  0x000010c, 0x82, 1, PutAll },
         { "STY",  0x000002c, 0x80, 1, PutAll },
         { "STZ",  0x000006c, 0x04, 5, PutAll },
-        { "SYS",  0x0800005, 0x0f, 6, PutAll },   /* Calls the emulator to execute a function */
         { "SWA",  0x0000001, 0xeb, 0, PutAll },   /* == XBA */
+        { "SYS",  0x0800005, 0x0f, 6, PutAll },   /* Calls the emulator to execute a function */
         { "TAD",  0x0000001, 0x5b, 0, PutAll },   /* == TCD */
         { "TAS",  0x0000001, 0x1b, 0, PutAll },   /* == TCS */
         { "TAX",  0x0000001, 0xaa, 0, PutAll },
