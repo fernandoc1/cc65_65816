@@ -1267,7 +1267,7 @@ static const struct {
         { "SEI",  0x0000001, 0x78, 0, PutAll },
         { "SEP",  0x0800000, 0xe2, 1, PutSEP },
         { "STA",  0x018f6fc, 0x80, 0, PutAll },
-        { "STP",  0x0800004, 0xdb, 6, PutAll },   /* Repurposed to call system functions */
+        { "STP",  0x0800001, 0xdb, 1, PutSEP },   /* Repurposed to call system functions */
         { "STX",  0x000010c, 0x82, 1, PutAll },
         { "STY",  0x000002c, 0x80, 1, PutAll },
         { "STZ",  0x000006c, 0x04, 5, PutAll },
